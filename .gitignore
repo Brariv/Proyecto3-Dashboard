@@ -1,0 +1,20 @@
+# ---------------------------------------------------------------------------
+# DATOS INSTITUCIONALES — NO SE VERSIONAN
+# Clausula de confidencialidad del proyecto: los archivos provistos por INGUAT
+# son de uso academico y no pueden redistribuirse ni publicarse en repositorios
+# abiertos. Se excluyen tanto los originales como las tablas derivadas.
+# Para levantar el proyecto hay que colocar la carpeta "Datos Inguat" en
+# data/raw/ manualmente; el ETL reconstruye data/procesado/ a partir de ella.
+# ---------------------------------------------------------------------------
+data/raw/
+data/procesado/
+
+# Entorno y artefactos de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Sistema
+.DS_Store

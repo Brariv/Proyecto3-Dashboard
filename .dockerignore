@@ -1,0 +1,10 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.git/
+.DS_Store
+docs/
+# Los datos entran por volumen, nunca por la imagen.
+data/raw/
+data/procesado/

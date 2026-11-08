@@ -1,0 +1,13 @@
+# El tablero se probo con estas versiones.
+# plotly se fija por debajo de 7: con 7.x Streamlit deja de entregar el evento
+# de seleccion de las graficas, que es lo que enlaza V1 con el resto del
+# modulo 1 y V7 con V6.
+streamlit>=1.40,<2
+plotly>=6.0,<7
+altair>=5.4
+pandas>=2.2
+numpy>=1.26
+
+# Lectura de los archivos de origen y escritura de las tablas limpias
+openpyxl>=3.1
+pyarrow>=15.0

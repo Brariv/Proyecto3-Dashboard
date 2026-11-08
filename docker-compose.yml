@@ -1,0 +1,28 @@
+# Levantar el observatorio:
+#
+#     docker compose up --build
+#
+# y abrir http://localhost:8501
+#
+# Requisito previo: colocar los archivos institucionales en ./data/raw/
+# (BD_moviidad_mensual.xlsx, BD_moviidad_diario.xlsx,
+#  Base_Migracion_2009-2026jun.xlsx, indice_ocupacion_mensual_2023_2025_1.csv,
+#  oferta_hotelera_2022_2026.csv). Esa carpeta no viaja en el repositorio ni
+# en la imagen: se monta en solo lectura desde la maquina anfitriona.
+
+services:
+  observatorio:
+    build: .
+    image: observatorio-riodulce-livingston:1.0
+    container_name: observatorio-riodulce
+    ports:
+      - "8501:8501"
+    volumes:
+      # Archivos originales: solo lectura, para que el contenedor no pueda
+      # modificarlos ni borrarlos por accidente.
+      - ./data/raw:/app/data/raw:ro
+      # Tablas derivadas: persisten entre reinicios para no repetir el ETL.
+      - ./data/procesado:/app/data/procesado
+    environment:
+      - TZ=America/Guatemala
+    restart: unless-stopped
