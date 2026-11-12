@@ -26,7 +26,7 @@ import streamlit as st
 import datos as dt
 from componentes import barra_navegacion, chips, titulo_grande
 from config import CSS
-from vistas import conectividad, demanda, guia, hoteleria, temporal
+from vistas import conectividad, demanda, guia, hoteleria, presentacion, temporal
 
 st.set_page_config(page_title="Observatorio Rio Dulce y Livingston",
                    page_icon="🛶", layout="wide",
@@ -34,7 +34,7 @@ st.set_page_config(page_title="Observatorio Rio Dulce y Livingston",
 st.markdown(CSS, unsafe_allow_html=True)
 
 # --------------------------------------------------------------------------
-# Los cuatro modulos obligatorios del observatorio, mas la guia de lectura
+# Los cuatro modulos obligatorios, la guia de lectura y la slide de cierre
 # --------------------------------------------------------------------------
 SECCIONES = {
     "Demanda": ("Demanda y mercados emisores",
@@ -52,6 +52,9 @@ SECCIONES = {
     "Guia": ("Guia de lectura",
              "Cobertura de cada fuente, reglas de calculo, colores y limitaciones",
              guia.render),
+    "Presentacion": ("Presentacion para INGUAT",
+                     "Destino, reto, hallazgos, recomendaciones, estimaciones y limites",
+                     presentacion.render),
 }
 
 GRAFICAS = {
@@ -67,6 +70,7 @@ GRAFICAS = {
                      "V18 Quien completa el viaje", "V19 Rezago del traslado",
                      "V20 La puerta maritima"],
     "Guia": [],
+    "Presentacion": [],
 }
 
 # Un enfoque nacido del toque en una grafica se propaga a las demas.
